@@ -5,7 +5,7 @@ require "mini_mime"
 class UploadsController < ApplicationController
   include ExternalUploadHelpers
 
-  requires_login except: [:show, :show_short, :_show_secure_deprecated, :show_secure]
+  requires_login
 
   skip_before_action :preload_json, :check_xhr, :redirect_to_login_if_required, only: [:show, :show_short, :_show_secure_deprecated, :show_secure]
   protect_from_forgery except: :show
